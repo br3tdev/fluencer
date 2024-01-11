@@ -32,7 +32,7 @@ export default function MarketingPage(props: IMarketingPageProps) {
         <h1 className="mb-6 text-center text-3xl text-neutral-800 md:text-6xl">
           Land the brand deals you deserve
         </h1>
-        <div className="w-fit rounded-md bg-gradient-to-r from-fuchsia-600 to-pink-600 p-2 px-4 pb-4 text-3xl text-white md:text-6xl">
+        <div className="text-3xl md:text-6xl bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white px-4 p-2 rounded-md w-fit">
           with Fluencer.
         </div>
       </div>
