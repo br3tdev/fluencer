@@ -48,7 +48,7 @@ export default function MarketingPage(props: IMarketingPageProps) {
         Fluencer team.
       </div>
       <Button className="mt-6" size={"lg"} asChild>
-        <Link href={"/signup"}>Start for Free</Link>
+        <Link href={"/sign-up"}>Start for Free</Link>
       </Button>
     </div>
   );

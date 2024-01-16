@@ -11,10 +11,10 @@ export default function Navbar(props: INavbarProps) {
         <Logo />
         <div className="flex items-center justify-between space-x-4 md:block md:w-auto w-full">
           <Button variant={"outline"} size={"sm"} asChild>
-            <Link href={"/login"}>Login</Link>
+            <Link href={"/sign-in"}>Login</Link>
           </Button>
           <Button variant={"default"} size={"sm"} asChild>
-            <Link href={"/signup"}>Start for Free</Link>
+            <Link href={"/sign-up"}>Start for Free</Link>
           </Button>
         </div>
       </div>
