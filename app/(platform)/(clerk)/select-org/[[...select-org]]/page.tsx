@@ -8,7 +8,7 @@ export default function CreateOrganizationList(
   return (
     <OrganizationList
       hidePersonal
-      afterCreateOrganizationUrl={"/profile/:id"}
+      afterCreateOrganizationUrl={"/onboarding"}
       afterSelectOrganizationUrl={"/profile/:id"}
     />
   );
