@@ -4,6 +4,7 @@ export default function ProfilePage(props: IProfilePageProps) {
   return (
     <div>
       <h1>Welcome to Fluencer App!</h1>
+      <p>Deployed at Vercel</p>
     </div>
   );
 }
