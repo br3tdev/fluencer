@@ -1,9 +1,8 @@
-import Footer from "@/app/(marketing)/_components/footer";
 import Navbar from "./_components/navbar";
 
-export interface IOnboardingLayoutProps {}
+export interface IAccountSetupLayoutProps {}
 
-export default function OnboardingLayout({
+export default function AccountSetupLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -12,7 +11,6 @@ export default function OnboardingLayout({
     <div className="h-full">
       <Navbar />
       <main className="pt-14 bg-slate-100">{children}</main>
-      <Footer />
     </div>
   );
 }

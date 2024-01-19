@@ -23,7 +23,7 @@ export default async function ProfileIdLayout({
   });
 
   if (!profile) {
-    redirect("/onboarding");
+    redirect("/account_setup");
   }
 
   return <div>{children}</div>;

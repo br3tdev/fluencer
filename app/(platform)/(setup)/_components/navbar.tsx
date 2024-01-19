@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { OrganizationSwitcher } from "@clerk/nextjs";
+import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 import localFont from "next/font/local";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,15 +34,26 @@ export default function Navbar(props: INavbarProps) {
       <div className="ml-auto flex items-center gap-x-2">
         <OrganizationSwitcher
           hidePersonal
-          afterCreateOrganizationUrl="/onboarding"
+          afterCreateOrganizationUrl="/account_setup"
           afterLeaveOrganizationUrl="/select-org"
-          afterSelectOrganizationUrl="/organization/:id"
+          afterSelectOrganizationUrl="/profile/:id"
           appearance={{
             elements: {
               rootBox: {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+              },
+            },
+          }}
+        />
+        <UserButton
+          afterSignOutUrl="/"
+          appearance={{
+            elements: {
+              avatarBox: {
+                height: 30,
+                width: 30,
               },
             },
           }}

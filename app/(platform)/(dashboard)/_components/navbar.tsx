@@ -26,9 +26,9 @@ export default function Navbar(props: INavbarProps) {
       <div className="ml-auto flex items-center gap-x-2">
         <OrganizationSwitcher
           hidePersonal
-          afterCreateOrganizationUrl="/organization/:id"
+          afterCreateOrganizationUrl="/profile/:id"
           afterLeaveOrganizationUrl="/select-org"
-          afterSelectOrganizationUrl="/organization/:id"
+          afterSelectOrganizationUrl="/profile/:id"
           appearance={{
             elements: {
               rootBox: {
