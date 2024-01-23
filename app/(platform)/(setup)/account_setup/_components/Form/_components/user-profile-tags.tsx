@@ -40,3 +40,5 @@ export const UserProfileTags = forwardRef<
     </Label>
   );
 });
+
+UserProfileTags.displayName = "UserProfileTags";
