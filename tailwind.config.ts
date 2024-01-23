@@ -18,6 +18,30 @@ const config = {
       },
     },
     extend: {
+      backgroundImage: {
+        sidebarDesktop: 'url("/images/bg-sidebar-desktop.svg")',
+        sidebarMobile: 'url("/images/bg-sidebar-mobile.svg")',
+      },
+      gridTemplateColumns: {
+        "container-sm": "1rem 1fr 1rem",
+        "container-md": "1rem 0.5fr 1fr 1rem",
+      },
+      gridRowStart: {
+        8: "8",
+        9: "9",
+        10: "10",
+        11: "11",
+        12: "12",
+        13: "13",
+      },
+      gridRowEnd: {
+        8: "8",
+        9: "9",
+        10: "10",
+        11: "11",
+        12: "12",
+        13: "13",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

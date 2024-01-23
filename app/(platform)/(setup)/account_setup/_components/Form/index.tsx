@@ -18,9 +18,9 @@ export default function Form({ className }: IFormProps) {
 const switchFormStepper = (step: number) => {
   switch (step) {
     case 0:
-      return <BioAndTagsFieldsContainer />;
-    case 1:
       return <DisplayInfoFieldsContainer />;
+    case 1:
+      return <BioAndTagsFieldsContainer />;
     default:
       return;
   }
