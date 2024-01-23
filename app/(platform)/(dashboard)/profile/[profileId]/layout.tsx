@@ -22,7 +22,7 @@ export default async function ProfileIdLayout({
     },
   });
 
-  if (!profile) {
+  if (!profile?.urlHandle) {
     redirect("/account_setup");
   }
 
