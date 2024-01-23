@@ -8,14 +8,20 @@ import {
   IUserInfoSliceProps,
   createUserInfoSlice,
 } from "./slices/user-info-slice";
+import {
+  IUserTagsSliceProps,
+  createUserTagsSlice,
+} from "./slices/user-tags-slice";
 
 export interface IFormStepperStore
   extends IModalSliceProps,
     IUserInfoSliceProps,
-    IUserBioSliceProps {}
+    IUserBioSliceProps,
+    IUserTagsSliceProps {}
 
 export const useFormStepper = create<IFormStepperStore>((...a) => ({
   ...createModalSlice(...a),
   ...createUserInfoSlice(...a),
   ...createUserBioSlice(...a),
+  ...createUserTagsSlice(...a),
 }));

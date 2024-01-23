@@ -6,7 +6,7 @@ export interface IUserBioSliceProps {
   userBio: UserBioType;
   bioErrors: Partial<UserBioType>;
   bioTouched: Record<keyof UserBioType, boolean>;
-  setUserBio: (newUserInfo: Partial<UserBioType>) => void;
+  setUserBio: (newUserBio: Partial<UserBioType>) => void;
   setBioErrors: (newErrors: Partial<UserBioType>) => void;
   setBioTouched: (
     newtouched: Partial<Record<keyof UserBioType, boolean>>,
@@ -29,17 +29,17 @@ export const createUserBioSlice: StateCreator<
     bio: false,
     tags: false,
   },
-  setUserBio: (newUserInfo) =>
-    set(({ userInfo }) => ({
-      userInfo: { ...userInfo, ...newUserInfo },
+  setUserBio: (newUserBio) =>
+    set(({ userBio }) => ({
+      userBio: { ...userBio, ...newUserBio },
     })),
   setBioErrors: (newErrors) =>
     set(() => ({
       bioErrors: newErrors,
     })),
-  setBioTouched: (newtouched) =>
-    set(({ touched }) => ({
-      touched: { ...touched, ...newtouched },
+  setBioTouched: (newBioTouched) =>
+    set(({ bioTouched }) => ({
+      bioTouched: { ...bioTouched, ...newBioTouched },
     })),
   triggerAllUntouched: () =>
     set(({ bioTouched }) => ({

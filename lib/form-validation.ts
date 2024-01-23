@@ -1,4 +1,4 @@
-import { UserInfoType } from "@/types/typings";
+import { UserBioType, UserInfoType } from "@/types/typings";
 import { ZodType, z } from "zod";
 
 const formSchema: ZodType<UserInfoType> = z.object({
@@ -15,7 +15,18 @@ const formSchema: ZodType<UserInfoType> = z.object({
     .max(13, { message: "Phone number is too long" }),
 });
 
-export default function formValidationFn(
+const bioSchema: ZodType<UserBioType> = z.object({
+  bio: z
+    .string()
+    .min(160, {
+      message: "Min 160 characters.",
+    })
+    .max(1000, {
+      message: "Max 1000 characters.",
+    }),
+});
+
+export function formValidationFn(
   data: Partial<UserInfoType>,
 ): Partial<UserInfoType> {
   const result = formSchema.safeParse(data);
@@ -30,3 +41,38 @@ export default function formValidationFn(
     return errors;
   }
 }
+
+export function bioValidationFn(
+  data: Partial<UserBioType>,
+): Partial<UserBioType> {
+  const result = bioSchema.safeParse(data);
+
+  if (result.success) {
+    return {};
+  } else {
+    const errors: Partial<UserBioType> = {};
+    result.error.errors.forEach((err) => {
+      errors[err.path[0] as keyof UserBioType] = err.message;
+    });
+    return errors;
+  }
+}
+
+const validationFn = (state: UserInfoType) => {
+  const errors: Partial<UserInfoType> = {};
+  const emailRegex =
+    /^[\w-]+(\.[\w-]+)*@[a-zA-Z\d-]+(\.[a-zA-Z\d-]+)*\.[a-zA-Z]{1,}$/;
+  const phoneephoneRegex = /^\+\d{9,13}$/;
+
+  if (!state.name) errors.name = "This field is required";
+
+  if (!state.email) errors.email = "This field is required";
+  if (state.email && !emailRegex.test(state.email))
+    errors.email = "invalid email";
+
+  if (!state.phone) errors.phone = "This field is required";
+  if (state.phone && !phoneephoneRegex.test(state.phone))
+    errors.phone = "invalid phone number";
+
+  return errors;
+};

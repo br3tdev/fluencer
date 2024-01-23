@@ -20,7 +20,6 @@ export interface IFormInputProps
   label?: string;
   name: string;
   value: string;
-  id?: string;
   className?: string;
   type?: HTMLInputTypeAttribute;
   required?: boolean;
@@ -31,7 +30,6 @@ export default function FormInput({
   label,
   name,
   value,
-  id,
   className,
   type = "text",
   required = false,
@@ -54,7 +52,7 @@ export default function FormInput({
       ) : null}
       <div className="relative">
         <Input
-          id={id || name}
+          id={name}
           name={name}
           value={value}
           type="text"

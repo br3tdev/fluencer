@@ -1,29 +1,10 @@
 import { useFormStepper } from "@/hooks/Form-stepper/use-form-stepper";
-import formValidationFn from "@/lib/form-validation";
-import { UserInfoType } from "@/types/typings";
+import { formValidationFn } from "@/lib/form-validation";
 import { useEffect } from "react";
 import FormInput from "./_components/form-input";
+import FrontMatter from "./_components/front-matter";
 
 export interface IDisplayInfoFieldsContainerProps {}
-
-const validationFn = (state: UserInfoType) => {
-  const errors: Partial<UserInfoType> = {};
-  const emailRegex =
-    /^[\w-]+(\.[\w-]+)*@[a-zA-Z\d-]+(\.[a-zA-Z\d-]+)*\.[a-zA-Z]{1,}$/;
-  const phoneephoneRegex = /^\+\d{9,13}$/;
-
-  if (!state.name) errors.name = "This field is required";
-
-  if (!state.email) errors.email = "This field is required";
-  if (state.email && !emailRegex.test(state.email))
-    errors.email = "invalid email";
-
-  if (!state.phone) errors.phone = "This field is required";
-  if (state.phone && !phoneephoneRegex.test(state.phone))
-    errors.phone = "invalid phone number";
-
-  return errors;
-};
 
 export default function DisplayInfoFieldsContainer(
   props: IDisplayInfoFieldsContainerProps,
@@ -33,7 +14,6 @@ export default function DisplayInfoFieldsContainer(
 
   useEffect(() => {
     setErrors(formValidationFn(userInfo));
-    // setErrors(validationFn(userInfo));
   }, [
     userInfo.name,
     userInfo.email,
@@ -46,10 +26,10 @@ export default function DisplayInfoFieldsContainer(
   return (
     <>
       <div className="mb-8 space-y-4">
-        <h1 className="text-4xl text-neutral-700 font-bold">Personal info</h1>
-        <p className="text-muted-foreground">
-          Please provide your name, email address and phone number
-        </p>
+        <FrontMatter
+          title="Personal info"
+          description="Please provide your name, email address and phone number"
+        />
       </div>
 
       <div className="space-y-4">
