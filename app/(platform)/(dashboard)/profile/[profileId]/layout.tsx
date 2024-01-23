@@ -18,7 +18,7 @@ export default async function ProfileIdLayout({
   const profile = await db.profile.findUnique({
     where: {
       id: params.profileId,
-      orgId,
+      orgId: orgId as string,
     },
   });
 
