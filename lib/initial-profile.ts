@@ -1,9 +1,10 @@
-import { currentUser, redirectToSignIn } from "@clerk/nextjs";
+import { auth, currentUser, redirectToSignIn } from "@clerk/nextjs";
 
 import { db } from "@/lib/db";
 
 export async function getInitialProfile() {
   const user = await currentUser();
+  const { orgId } = auth();
 
   if (!user) return redirectToSignIn();
 
@@ -20,6 +21,7 @@ export async function getInitialProfile() {
       userId: user.id,
       name: `${user.firstName} ${user.lastName}`,
       email: user.emailAddresses[0].emailAddress,
+      orgId: orgId as string,
     },
   });
 
