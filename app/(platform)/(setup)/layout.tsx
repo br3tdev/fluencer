@@ -7,7 +7,6 @@ export default function AccountSetupLayout({
 }) {
   return (
     <div className="h-full">
-      {/* <Navbar /> */}
       <main className="bg-slate-100">{children}</main>
     </div>
   );

@@ -27,7 +27,7 @@ export default function Aside({ className }: IAsideProps) {
     >
       <ul
         className={cn(
-          "flex jusify-center gap-4 md:block md:space-y-8 sm:mb-8 md:mb-0",
+          "flex justify-center gap-4 md:block md:space-y-8 sm:mb-8 md:mb-0",
           "aside__step-list",
         )}
       >

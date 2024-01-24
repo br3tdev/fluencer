@@ -59,7 +59,7 @@ export default function BioAndTagsFieldsContainer(
           >
             Add tags that match your bio
           </Label>
-          <ul className="flex flex-wrap items-center justify-center gap-2">
+          <ul className="flex flex-wrap items-center justify-center content-around gap-1">
             {userTagsList.map(({ name, value, ...others }) => {
               return (
                 <li key={name}>
