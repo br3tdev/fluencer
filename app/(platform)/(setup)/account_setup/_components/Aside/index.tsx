@@ -6,6 +6,8 @@ import Step from "./_components/step";
 const stepsArray: Array<{ step: number; title: string }> = [
   { step: 1, title: "Personal info" },
   { step: 2, title: "Bio" },
+  { step: 3, title: "Connect socials" },
+  { step: 4, title: "Finalize" },
 ];
 
 export interface IAsideProps {

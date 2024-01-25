@@ -1,5 +1,6 @@
 import { useFormStepper } from "@/hooks/Form-stepper/use-form-stepper";
 import BioAndTagsFieldsContainer from "./bio-and-tags-fields-container";
+import ConnectSocialsContainer from "./connect-socials-container";
 import DisplayInfoFieldsContainer from "./display-info-fields-container";
 
 export interface IFormProps {
@@ -21,6 +22,8 @@ const switchFormStepper = (step: number) => {
       return <DisplayInfoFieldsContainer />;
     case 1:
       return <BioAndTagsFieldsContainer />;
+    case 2:
+      return <ConnectSocialsContainer />;
     default:
       return;
   }

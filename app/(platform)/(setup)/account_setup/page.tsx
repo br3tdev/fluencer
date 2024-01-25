@@ -8,6 +8,7 @@ import { checkStepperValidation } from "@/lib/stepper-validation";
 import { useUser } from "@clerk/nextjs";
 import { User } from "lucide-react";
 import Aside from "./_components/Aside";
+import Finalize from "./_components/Finalize";
 import Form from "./_components/Form";
 import Main from "./_components/Main";
 
@@ -29,11 +30,17 @@ export default function AccountSetupPage(props: IAccountSetupPageProps) {
     triggerAllUntouched,
   } = useFormStepper((state) => state);
 
-  const TOTAL_STEPS = 2;
+  const TOTAL_STEPS = 4;
   const isLastStep = currentStep === TOTAL_STEPS - 1;
   const stepValidated = checkStepperValidation(userInfo, errors);
+  const bioValidated = checkStepperValidation(userBio, bioErrors);
 
   const handleForwardClick = () => {
+    if (!isLastStep && bioValidated) {
+      console.log(bioErrors.bio);
+      console.log(bioValidated);
+      incrementCurrentStep();
+    }
     if (!isLastStep && stepValidated) incrementCurrentStep();
     else triggerAllUntouched();
     if (isLastStep) {
@@ -83,9 +90,9 @@ export default function AccountSetupPage(props: IAccountSetupPageProps) {
           <div className="grid grid-cols-container-sm md:grid-cols-container-md md:rounded-2xl md:bg-white md:py-[1rem] md:w-[720px] lg:w-[1024px] md:h-[540px] lg:h-[640px] md:shadow-2xl">
             <Aside className="col-span-full row-start-1 row-end-6 md:rounded-xl md:col-start-2 md:col-span-1" />
             <Main className="py-12 px-6 sm:mt-4 bg-white col-start-2 col-span-1 row-start-5 row-end-10 self-start rounded-lg shadow-2xl md:shadow-none md:px-24 md:row-start-1 md:row-end-3 md:col-start-3 md:col-span-1 md:rounded-none">
-              <Form />
+              {isLastStep ? <Finalize /> : <Form />}
             </Main>
-            <footer className="flex justify-between mt-16 bg-white col-span-full self-end p-[1rem] md:col-start-3 md:col-span-1 md:row-start-2 md:px-24">
+            <footer className="flex justify-between bg-white col-span-full self-end p-[1rem] md:col-start-3 md:col-span-1 md:row-start-4 md:px-24">
               {currentStep > 0 && (
                 <Button
                   variant={"ghost"}
